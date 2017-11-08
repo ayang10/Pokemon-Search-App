@@ -1,0 +1,82 @@
+/* pokemon container */
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  font-family: arial;
+}
+
+.card {
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  height: calc(1.4 * 100px);
+  animation: float 1.3s ease-in-out infinite;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  margin: 10px 5px;
+  transition: transform 0.3s ease-out;
+  transform: rotateY(0deg);
+}
+
+.card .side {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 3%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.card .front {
+  background-color: #17316a;
+  transition: width 0.2s ease-out, height 0.2s ease-out, top 0.2s ease-out, left 0.2s ease-out;
+}
+
+.card:hover {
+  animation: none;
+  z-index: 100;
+}
+.card:hover .side.front {
+  width: 300px;
+  height: calc(1.4 * 300px);
+  position: relative;
+  top: calc((-1 * (1.4 * 300px) / 2) + ((1.4 * 100px) / 2));
+  left: calc((-1 * 300px / 2) + (100px / 2));
+}
+
+.container {
+  height: 100%;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  text-align: center;
+}
+
+.cards-container {
+  margin: 0 auto;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-items: top;
+  padding: 30px 100px;
+  filter: drop-shadow(25px 25px 10px grey);
+}
+
+@keyframes float {
+  0% {
+    top: -5px;
+  }
+  50% {
+    top: 5px;
+  }
+  100% {
+    top: -5px;
+  }
+}
